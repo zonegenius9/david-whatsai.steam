@@ -10,7 +10,7 @@ const { state, saveState } = useSingleFileAuthState("./login.json");
 //Here we add the openai code from chatgpt
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: 'fill this with your own open ai api k ety',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -31,7 +31,7 @@ async function generateResponse(text) {
 // The main function
 async function connectToWhatsApp() {
 
-    //Buat sebuah koneksi baru ke WhatsApp
+    //Make a new connection to Wa
     const sock = makeWASocket({
         auth: state,
         printQRInTerminal: true,
@@ -86,15 +86,15 @@ async function connectToWhatsApp() {
 
                 //From this function we can know if this message is from the group or not
                 //And if the message mention the bot or not
-                const isMessageFromGroup = senderNumber.includes("@g.us");
-                const isMessageMentionBot = incomingMessages.includes("@6282126083338");
+                const isMessageFromGroup = senderNumber.includes("@g.us"); //do not change this code because if you change the name of the g.us the code can't detect if the message is from the group or not
+                const isMessageMentionBot = incomingMessages.includes("@6282126083338"); //you may change this to anything (to any mentions) or text
 
                 //Show the sender number and his requested message
                 console.log("Sender Number:", senderNumber);
                 console.log("His or Her message:", incomingMessages);
 
-                //Tampilkan Status Pesan dari Grup atau Bukan
-                //Tampilkan Status Pesan Mengebut Bot atau Tidak
+                //SHow if the message from group or not
+                //Show if the person mention the bot or not
                 console.log("Apakah Pesan dari Grup? ", isMessageFromGroup);
                 console.log("Apakah Pesan Menyebut Bot? ", isMessageMentionBot);
 
